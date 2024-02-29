@@ -1,6 +1,6 @@
 import './styles/App.css';
-import './components/month_detail'
-import MonthDetail from "./components/month_detail";
+import './components/month'
+import Month from "./components/month";
 
 
 
@@ -9,6 +9,8 @@ function Calendar() {
     const currentMonth = new Date().getMonth();
     const currentDay = new Date().getDate();
     const calendar = [];
+    
+
 
     for (let month = currentMonth - 2; month < currentMonth + 10; month++) {
         const realMonth = month >= 0 ? month % 12 : 12 + month;
@@ -17,7 +19,7 @@ function Calendar() {
 
 
         const monthDetailInstance = (
-            <MonthDetail key={monthNames[realMonth]} monthName={monthNames[realMonth]} currentDay={currentDay} daysInMonth={daysInMonth} realMonth={realMonth} currentMonth={currentMonth} />
+            <Month key={monthNames[realMonth]} monthName={monthNames[realMonth]} currentDay={currentDay} daysInMonth={daysInMonth} realMonth={realMonth} currentMonth={currentMonth} />
         );
 
         calendar.push(monthDetailInstance);
