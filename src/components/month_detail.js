@@ -7,7 +7,7 @@ function MonthDetail({ handleMonthNameClick }) {
 
     return (
         <div className="month-detail">
-            <div onClick={handleCloseBtnClick}>close</div>
+            <div onClick={handleCloseBtnClick}>Close</div>
         </div>
     );
 }
