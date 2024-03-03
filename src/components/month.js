@@ -1,14 +1,7 @@
 import '../styles/Month.css'
-import MonthDetail from "./month_detail";
-import {useState} from "react";
 
-function Month({monthName, currentDay, daysInMonth, realMonth, currentMonth}) {
+function Month({monthName, currentDay, daysInMonth, realMonth, currentMonth, handleMonthNameClick}) {
 
-    const [monthDetailVisibility, setMonthDetailVisibility] = useState(false);
-
-    function handleMonthNameClick() {
-        setMonthDetailVisibility(!monthDetailVisibility);
-    }
 
     const days = [];
 
@@ -27,8 +20,6 @@ function Month({monthName, currentDay, daysInMonth, realMonth, currentMonth}) {
         <div className={'month'}>
             <div className={'month-name'} onClick={handleMonthNameClick}>{monthName}</div>
             <div className={'month-days'}>{days}</div>
-            {monthDetailVisibility ? (<MonthDetail handleMonthNameClick={handleMonthNameClick}/>) : null}
-
         </div>
     )
 }

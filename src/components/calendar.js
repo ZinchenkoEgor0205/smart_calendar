@@ -1,6 +1,8 @@
 import '../styles/App.css';
 import '../components/month'
 import Month from "../components/month";
+import MonthDetail from "./month_detail";
+import {useState} from "react";
 
 
 
@@ -9,6 +11,12 @@ function Calendar() {
     const currentMonth = new Date().getMonth();
     const currentDay = new Date().getDate();
     const calendar = [];
+
+    const [monthDetailVisibility, setMonthDetailVisibility] = useState(false);
+
+    function handleMonthNameClick() {
+        setMonthDetailVisibility(!monthDetailVisibility);
+    }
 
 
 
@@ -19,7 +27,7 @@ function Calendar() {
 
 
         const monthDetailInstance = (
-            <Month key={monthNames[realMonth]} monthName={monthNames[realMonth]} currentDay={currentDay} daysInMonth={daysInMonth} realMonth={realMonth} currentMonth={currentMonth} />
+            <Month key={monthNames[realMonth]} monthName={monthNames[realMonth]} currentDay={currentDay} daysInMonth={daysInMonth} realMonth={realMonth} currentMonth={currentMonth} handleMonthNameClick={handleMonthNameClick}/>
         );
 
         calendar.push(monthDetailInstance);
@@ -28,6 +36,8 @@ function Calendar() {
 
     return (
         <div className={'calendar'}>
+            {monthDetailVisibility ? (<MonthDetail handleMonthNameClick={handleMonthNameClick}/>) : null}
+
             {calendar}
         </div>
     )
