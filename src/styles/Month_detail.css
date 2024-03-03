@@ -1,10 +1,10 @@
 
 .month-detail {
-    width: 300px;
-    height: 100px;
+    width: 1200px;
+    height: 500px;
     background: tomato;
-    position: fixed;
-    left: auto;
-    top: 240px;
-    right: auto;
+    position: absolute;
+    left: 50%;
+    top: 10%;
+    transform: translate(-50%, 0);
 }

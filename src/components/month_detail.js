@@ -1,13 +1,14 @@
 import '../styles/Month_detail.css'
 
-function MonthDetail({ handleMonthNameClick }) {
+function MonthDetail({ showMonthDetailPopup, monthNameState, currentDayState, daysInMonthState, realMonthState, currentMonthState}) {
     function handleCloseBtnClick() {
-        handleMonthNameClick();
+        showMonthDetailPopup();
     }
 
     return (
         <div className="month-detail">
             <div onClick={handleCloseBtnClick}>Close</div>
+            <div>{monthNameState}</div>
         </div>
     );
 }
