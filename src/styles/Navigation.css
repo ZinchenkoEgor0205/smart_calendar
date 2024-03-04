@@ -1,0 +1,11 @@
+nav {
+    padding: 1.5% 2.5% 1.5% 2.5%;
+}
+
+.nav-container {
+    padding: 1.5% 2.5% 1.5% 2.5%;
+    background: #9afcaa;
+    display: flex;
+    justify-content: flex-end;
+}
+
