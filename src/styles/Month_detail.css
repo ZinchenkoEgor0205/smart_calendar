@@ -20,6 +20,10 @@
     margin-bottom: 2%;
 }
 
+.month-detail-header-btn {
+    cursor: pointer;
+}
+
 .month-detail-content {
     width: 96%;
     /*padding: 1%;*/
@@ -34,6 +38,10 @@
     background: #9afcaa;
     margin-right: 1.2%;
     margin-bottom: 1.2%;
+}
+
+.month-detail-content-day-current {
+    background: #68a028;
 }
 
 .month-detail-content-day:nth-child(11n) {
