@@ -1,13 +1,28 @@
 import '../styles/Month_detail.css'
 
-function MonthDetail({ handleMonthNameClick }) {
+function MonthDetail({ showMonthDetailPopup, monthNameState, currentDayState, daysInMonthState, realMonthState, currentMonthState}) {
     function handleCloseBtnClick() {
-        handleMonthNameClick();
+        showMonthDetailPopup();
+    }
+
+    const days = []
+    for (let i = 1; i <= daysInMonthState; i++) {
+        days.push(
+            <div className={'month-detail-content-day'}>
+                {i}
+            </div>
+        )
     }
 
     return (
         <div className="month-detail">
-            <div onClick={handleCloseBtnClick}>Close</div>
+            <div className={'month-detail-header'}>
+                <div className={'month-detail-header-name'}>{monthNameState}</div>
+                <div onClick={handleCloseBtnClick} className={'month-detail-header-btn'}>Close</div>
+            </div>
+            <div className={'month-detail-content'}>
+                {days}
+            </div>
         </div>
     );
 }

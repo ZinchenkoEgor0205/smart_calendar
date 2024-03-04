@@ -1,7 +1,8 @@
 import '../styles/App.css';
 import '../components/month'
 import Month from "../components/month";
-
+import MonthDetail from "./month_detail";
+import {useState} from "react";
 
 
 function Calendar() {
@@ -10,6 +11,21 @@ function Calendar() {
     const currentDay = new Date().getDate();
     const calendar = [];
 
+    const [monthDetailVisibility, setMonthDetailVisibility] = useState(false);
+    const [monthNameState, setMonthNameState] = useState('');
+    const [currentDayState, setCurrentDayState] = useState(0);
+    const [daysInMonthState, setDaysInMonthState] = useState(0);
+    const [realMonthState, setRealMonthState] = useState(0);
+    const [currentMonthState, setCurrentMonthState] = useState(0);
+
+    function showMonthDetailPopup(monthName, currentDay, daysInMonth, realMonth, currentMonth) {
+        setMonthDetailVisibility(!monthDetailVisibility);
+        setMonthNameState(monthName)
+        setCurrentDayState(currentDay)
+        setDaysInMonthState(daysInMonth)
+        setRealMonthState(realMonth)
+        setCurrentMonthState(currentMonth)
+    }
 
 
     for (let month = currentMonth - 2; month < currentMonth + 10; month++) {
@@ -19,7 +35,9 @@ function Calendar() {
 
 
         const monthDetailInstance = (
-            <Month key={monthNames[realMonth]} monthName={monthNames[realMonth]} currentDay={currentDay} daysInMonth={daysInMonth} realMonth={realMonth} currentMonth={currentMonth} />
+            <Month key={monthNames[realMonth]} monthName={monthNames[realMonth]} currentDay={currentDay}
+                   daysInMonth={daysInMonth} realMonth={realMonth} currentMonth={currentMonth}
+                   showMonthDetailPopup={showMonthDetailPopup}/>
         );
 
         calendar.push(monthDetailInstance);
@@ -28,6 +46,11 @@ function Calendar() {
 
     return (
         <div className={'calendar'}>
+            {monthDetailVisibility ? (
+                <MonthDetail showMonthDetailPopup={showMonthDetailPopup} monthNameState={monthNameState}
+                             currentDayState={currentDayState} daysInMonthState={daysInMonthState}
+                             realMonthState={realMonthState} currentMonthState={currentMonthState}/>) : null}
+
             {calendar}
         </div>
     )

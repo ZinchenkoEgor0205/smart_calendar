@@ -1,10 +1,49 @@
 
 .month-detail {
-    width: 300px;
-    height: 100px;
+    min-width: 62.5%;
+    min-height: 46.3%;
     background: tomato;
-    position: fixed;
-    left: auto;
-    top: 240px;
-    right: auto;
+    position: absolute;
+    left: 50%;
+    top: 10%;
+    transform: translate(-50%, 0);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.month-detail-header{
+    display: flex;
+    width: 96%;
+    justify-content: space-between;
+    padding: 1% 2% 0 2%;
+    margin-bottom: 2%;
+}
+
+.month-detail-header-btn {
+    cursor: pointer;
+}
+
+.month-detail-content {
+    width: 96%;
+    /*padding: 1%;*/
+    display: flex;
+    flex-wrap: wrap;
+    /*justify-content: center;*/
+}
+
+.month-detail-content-day {
+    width: 8%;
+    padding-top: 8%;
+    background: #9afcaa;
+    margin-right: 1.2%;
+    margin-bottom: 1.2%;
+}
+
+.month-detail-content-day-current {
+    background: #68a028;
+}
+
+.month-detail-content-day:nth-child(11n) {
+    margin-right: 0;
 }
