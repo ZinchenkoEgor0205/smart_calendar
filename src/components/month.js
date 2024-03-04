@@ -1,6 +1,6 @@
 import '../styles/Month.css'
 
-function Month({monthName, currentDay, daysInMonth, realMonth, currentMonth, showMonthDetailPopup}) {
+function Month({monthName, currentDay, daysInMonth, realMonth, currentMonth, showMonthDetailPopup, showDayDetailPopup}) {
 
 
     function handleMonthNameClick() {
@@ -8,14 +8,16 @@ function Month({monthName, currentDay, daysInMonth, realMonth, currentMonth, sho
     }
 
 
+
     const days = [];
 
     for (let i = 1; i <= daysInMonth; i++) {
 
         const isToday = i === currentDay && realMonth === currentMonth;
-        days.push(<div key={`${realMonth}-${i}`} className={isToday ? ' day day-today' : 'day'}>
-            {i}
-        </div>);
+        days.push(
+            <div key={`${realMonth}-${i}`} className={isToday ? ' day day-today' : 'day'} onClick={() => showDayDetailPopup(monthName, i)}>
+                {i}
+            </div>);
     }
 
 
