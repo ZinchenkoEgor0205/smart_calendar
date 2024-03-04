@@ -1,0 +1,13 @@
+
+.day-popup {
+    width: 40%;
+    height: 50%;
+    background: aqua;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.close-btn {
+    cursor: pointer;
+}

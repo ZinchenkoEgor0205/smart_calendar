@@ -3,6 +3,7 @@ import '../components/month'
 import Month from "../components/month";
 import MonthDetail from "./month_detail";
 import {useState} from "react";
+import Day from "./day";
 
 
 function Calendar() {
@@ -12,11 +13,16 @@ function Calendar() {
     const calendar = [];
 
     const [monthDetailVisibility, setMonthDetailVisibility] = useState(false);
+    const [dayDetailVisibility, setDayDetailVisibility] = useState(false);
+
     const [monthNameState, setMonthNameState] = useState('');
     const [currentDayState, setCurrentDayState] = useState(0);
     const [daysInMonthState, setDaysInMonthState] = useState(0);
     const [realMonthState, setRealMonthState] = useState(0);
     const [currentMonthState, setCurrentMonthState] = useState(0);
+
+    const [selectedDayState, setSelectedDayState] = useState(0);
+    const [selectedMonthState, setSelectedMonthState] = useState(0);
 
     function showMonthDetailPopup(monthName, currentDay, daysInMonth, realMonth, currentMonth) {
         setMonthDetailVisibility(!monthDetailVisibility);
@@ -25,6 +31,12 @@ function Calendar() {
         setDaysInMonthState(daysInMonth)
         setRealMonthState(realMonth)
         setCurrentMonthState(currentMonth)
+    }
+
+    function showDayDetailPopup(monthName, currentDay) {
+        setDayDetailVisibility(!dayDetailVisibility)
+        setSelectedDayState(currentDay)
+        setSelectedMonthState(monthName)
     }
 
 
@@ -37,7 +49,7 @@ function Calendar() {
         const monthDetailInstance = (
             <Month key={monthNames[realMonth]} monthName={monthNames[realMonth]} currentDay={currentDay}
                    daysInMonth={daysInMonth} realMonth={realMonth} currentMonth={currentMonth}
-                   showMonthDetailPopup={showMonthDetailPopup}/>
+                   showMonthDetailPopup={showMonthDetailPopup} showDayDetailPopup={showDayDetailPopup}/>
         );
 
         calendar.push(monthDetailInstance);
@@ -47,11 +59,16 @@ function Calendar() {
     return (
         <div className={'calendar'}>
             {monthDetailVisibility ? (
-                <MonthDetail showMonthDetailPopup={showMonthDetailPopup} monthNameState={monthNameState}
+                <MonthDetail showMonthDetailPopup={showMonthDetailPopup} showDayDetailPopup={showDayDetailPopup}
+                             monthNameState={monthNameState}
                              currentDayState={currentDayState} daysInMonthState={daysInMonthState}
                              realMonthState={realMonthState} currentMonthState={currentMonthState}/>) : null}
 
             {calendar}
+            {dayDetailVisibility? (
+                <Day day={selectedDayState} monthName={selectedMonthState} showDayDetailPopup={showDayDetailPopup}/>
+            ): null}
+
         </div>
     )
 }

@@ -1,6 +1,7 @@
 import '../styles/Month_detail.css'
 
-function MonthDetail({ showMonthDetailPopup, monthNameState, currentDayState, daysInMonthState, realMonthState, currentMonthState}) {
+
+function MonthDetail({ showMonthDetailPopup, monthNameState, currentDayState, daysInMonthState, realMonthState, currentMonthState, showDayDetailPopup}) {
     function handleCloseBtnClick() {
         showMonthDetailPopup();
     }
@@ -8,7 +9,7 @@ function MonthDetail({ showMonthDetailPopup, monthNameState, currentDayState, da
     const days = []
     for (let i = 1; i <= daysInMonthState; i++) {
         days.push(
-            <div className={'month-detail-content-day'}>
+            <div className={'month-detail-content-day'} onClick={() => showDayDetailPopup(monthNameState, i)}>
                 {i}
             </div>
         )
@@ -23,6 +24,7 @@ function MonthDetail({ showMonthDetailPopup, monthNameState, currentDayState, da
             <div className={'month-detail-content'}>
                 {days}
             </div>
+
         </div>
     );
 }
