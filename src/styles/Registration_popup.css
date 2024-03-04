@@ -1,4 +1,4 @@
-.login-popup {
+.registration-popup {
     min-width: 40%;
     min-height: 50%;
     background: #fa7c7c;
@@ -7,24 +7,24 @@
     transform: translateX(-50%);
 }
 
-.login-popup-header {
+.registration-popup-header {
     padding: 1.5% 0 0 1.5%;
     margin-bottom: 1.5%;
 }
 
-.login-popup-form {
+.registration-popup-form {
     display: flex;
     flex-direction: column;
     /*padding: 0 20% 0 20%;*/
     align-items: center;
 }
 
-.login-popup-form-input {
+.registration-popup-form-input {
     width: 50%;
     margin-bottom: 2%;
 }
 
-.login-popup-close {
+.registration-popup-close {
     position: absolute;
     display: flex;
 }
