@@ -1,0 +1,22 @@
+aside {
+    padding: 1.5% 2.5% 1.5% 2.5%;
+}
+
+.aside-container {
+    padding: 1.5% 2.5% 1.5% 2.5%;
+    background: #fa7c7c;
+    display: flex;
+}
+
+/*.sidebar {*/
+/*    width: 250px;*/
+/*    height: 100%;*/
+/*    position: fixed;*/
+/*    top: 0;*/
+/*    left: -250px;*/
+/*    transition: left 0.3s ease;*/
+/*}*/
+
+/*.sidebar.open {*/
+/*    left: 0;*/
+/*}*/
