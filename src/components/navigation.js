@@ -3,12 +3,14 @@ import LoginPopup from "./login_popup";
 import {useState} from "react";
 import RegistrationPopup from "./registration_popup";
 import AccountPopup from "./account_popup";
+import NotificationsPopup from "./notifications_popup";
 
 function Navigation() {
 
     const [loginPopupVisibility, setLoginPopupVisibility] = useState(false);
     const [registrationPopupVisibility, setRegistrationPopupVisibility] = useState(false);
     const [accountPopupVisibility, setAccountPopupVisibility] = useState(false);
+    const [notificationsPopupVisibility, setNotificationsPopupVisibility] = useState(false);
 
     function loginBtnClick() {
         setLoginPopupVisibility(!loginPopupVisibility)
@@ -20,6 +22,10 @@ function Navigation() {
 
     function accountBtnClick() {
         setAccountPopupVisibility(!accountPopupVisibility)
+    }
+
+    function notificationsBtnClick() {
+        setNotificationsPopupVisibility(!notificationsPopupVisibility)
     }
 
     return (
@@ -34,10 +40,14 @@ function Navigation() {
                 <div className={'nav-container-btn-account'} onClick={accountBtnClick}>
                     Личный кабинет
                 </div>
+                <div className={'nav-container-btn-notifications'} onClick={notificationsBtnClick}>
+                    Уведомления
+                </div>
             </div>
             {loginPopupVisibility ? <LoginPopup loginBtnClick={loginBtnClick}/> : null}
             {registrationPopupVisibility ? <RegistrationPopup registrationBtnClick={registrationBtnClick}/> : null}
             {accountPopupVisibility ? <AccountPopup accountBtnClick={accountBtnClick}/> : null}
+            {notificationsPopupVisibility ? <NotificationsPopup notificationsBtnClick={notificationsBtnClick}/> : null}
         </nav>
     )
 }
