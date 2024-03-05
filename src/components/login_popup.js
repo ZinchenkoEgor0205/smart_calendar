@@ -12,7 +12,10 @@ function LoginPopup({loginBtnClick}) {
             <form className={'login-popup-form'}>
                 <input className={'login-popup-form-input'} placeholder={'Email'}/>
                 <input className={'login-popup-form-input'} placeholder={'Пароль'} type={'password'}/>
-                <button className={'login-popup-form-btn'} name={'login'} type={'button'} onClick={loginPopupBtnClick}>Войти</button>
+                <button className={'login-popup-form-btn'} name={'login'} type={'button'}
+                        onClick={loginPopupBtnClick}>Войти
+                </button>
+                <a className={'account-popup-form-element'} href={''}>Забыли пароль?</a>
             </form>
         </div>
     )

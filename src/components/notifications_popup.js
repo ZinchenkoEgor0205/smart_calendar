@@ -8,12 +8,10 @@ function NotificationsPopup({notificationsBtnClick}) {
 
     return (
         <div className={'notifications-popup'}>
-            <h3 className={'notifications-popup-header'}>Личный кабинет</h3>
+            <h3 className={'notifications-popup-header'}>Уведомления</h3>
             <button className={'notifications-popup-close'} type={'button'} onClick={notificationsPopupBtnClick}>Закрыть</button>
             <form className={'notifications-popup-form'}>
-                <input className={'notifications-popup-form-input'} placeholder={'Email'}/>
-                <input className={'notifications-popup-form-input'} placeholder={'Пароль'} type={'password'}/>
-                <button className={'notifications-popup-form-btn'} name={'login'} type={'button'} onClick={notificationsPopupBtnClick}>Войти</button>
+                111111111111111111111111111
             </form>
         </div>
     )

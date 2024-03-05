@@ -1,6 +1,6 @@
 .account-popup {
     min-width: 40%;
-    min-height: 50%;
+    min-height: 60%;
     background: #fa7c7c;
     position: absolute;
     left: 50%;
@@ -19,7 +19,7 @@
     align-items: center;
 }
 
-.account-popup-form-input {
+.account-popup-form-element {
     width: 50%;
     margin-bottom: 2%;
 }
