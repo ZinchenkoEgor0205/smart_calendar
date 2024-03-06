@@ -1,3 +1,8 @@
+.app {
+    display: flex;
+    flex-direction: column;
+}
+
 .content {
     display: flex;
 }
@@ -8,9 +13,4 @@
     flex-wrap: wrap;
 }
 
-.sidebar {
-    width: 200px;
-    height: 100%;
-    background: blueviolet;
-}
 

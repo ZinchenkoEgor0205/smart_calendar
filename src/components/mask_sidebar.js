@@ -3,8 +3,8 @@ import '../styles/Mask_sidebar.css'
 
 function MaskSidebar () {
     return (
-        <aside>
-            <div className={'aside-container'}>
+        <aside className={'sidebar'}>
+            <div className={'sidebar-container'}>
                 11111111
             </div>
         </aside>

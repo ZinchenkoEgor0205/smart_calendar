@@ -2,15 +2,19 @@ import './styles/App.css';
 import './components/month'
 import Calendar from "./components/calendar";
 import Navigation from "./components/navigation";
+import MaskSidebar from "./components/mask_sidebar";
 
 
 
 function App() {
     return (
-        <div className={'content'}>
+        <div className={'app'}>
             <Navigation/>
-            <Calendar/>
-            <MaskSidebar/>
+            <div className={'content'}>
+                <Calendar/>
+                <MaskSidebar/>
+            </div>
+
         </div>
     )
 }
