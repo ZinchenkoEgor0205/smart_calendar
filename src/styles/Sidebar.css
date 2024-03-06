@@ -1,12 +1,17 @@
 .sidebar {
     position: sticky;
     top: 0;
-    height: 100vh;
-    width: 3%;
+    height: 92.5vh;
+    width: 5%;
     background: #fa7c7c;
+    transition: width 0.5s ease;
 }
 
 
 .sidebar-extended {
-    width: 14%;
+    width: 20%;
+}
+
+.sidebar-btn {
+    margin-bottom: 3vh;
 }
