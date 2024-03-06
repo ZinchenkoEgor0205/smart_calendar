@@ -13,7 +13,7 @@ function RegistrationPopup({registrationBtnClick}) {
                 <input className={'registration-popup-form-input'} placeholder={'Email'}/>
                 <input className={'registration-popup-form-input'} placeholder={'Имя пользователя'}/>
                 <input className={'registration-popup-form-input'} placeholder={'Пароль'} type={'password'}/>
-                <button className={'registration-popup-form-btn'} name={'login'} type={'button'}
+                <button className={'registration-popup-form-btn'} name={'registration'} type={'button'}
                         onClick={registrationPopupBtnClick}>Зарегистрироваться
                 </button>
             </form>

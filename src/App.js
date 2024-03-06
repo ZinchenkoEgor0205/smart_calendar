@@ -8,15 +8,9 @@ import Navigation from "./components/navigation";
 function App() {
     return (
         <div className={'content'}>
-            <div className={'content-left'}>
-                <Navigation/>
-                <Calendar/>
-            </div>
-            <div className={'content-right'}>
-                <div className={'sidebar'}>
-                    test
-                </div>
-            </div>
+            <Navigation/>
+            <Calendar/>
+            <MaskSidebar/>
         </div>
     )
 }

@@ -1,0 +1,30 @@
+.notifications-popup {
+    min-width: 40%;
+    min-height: 50%;
+    background: #fa7c7c;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.notifications-popup-header {
+    padding: 1.5% 0 0 1.5%;
+    margin-bottom: 1.5%;
+}
+
+.notifications-popup-form {
+    display: flex;
+    flex-direction: column;
+    /*padding: 0 20% 0 20%;*/
+    align-items: center;
+}
+
+.notifications-popup-form-input {
+    width: 50%;
+    margin-bottom: 2%;
+}
+
+.notifications-popup-close {
+    position: absolute;
+    display: flex;
+}
