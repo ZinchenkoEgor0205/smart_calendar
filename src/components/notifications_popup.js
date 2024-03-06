@@ -1,3 +1,4 @@
+
 import '../styles/Notifications_popup.css'
 
 function NotificationsPopup({notificationsBtnClick}) {

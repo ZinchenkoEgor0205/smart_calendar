@@ -1,4 +1,6 @@
+
 import '../styles/Registration_popup.css'
+
 function RegistrationPopup({registrationBtnClick}) {
 
     function registrationPopupBtnClick() {

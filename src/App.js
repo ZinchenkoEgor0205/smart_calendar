@@ -2,7 +2,7 @@ import './styles/App.css';
 import './components/month'
 import Calendar from "./components/calendar";
 import Navigation from "./components/navigation";
-import MaskSidebar from "./components/mask_sidebar";
+import Sidebar from "./components/sidebar";
 
 
 
@@ -12,7 +12,7 @@ function App() {
             <Navigation/>
             <div className={'content'}>
                 <Calendar/>
-                <MaskSidebar/>
+                <Sidebar/>
             </div>
 
         </div>
