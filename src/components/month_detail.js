@@ -1,7 +1,28 @@
 import '../styles/Month_detail.css'
+import {useEffect} from "react";
 
 
-function MonthDetail({ showMonthDetailPopup, monthNameState, currentDayState, daysInMonthState, realMonthState, currentMonthState, showDayDetailPopup}) {
+function MonthDetail({ showMonthDetailPopup, monthNameState, currentDayState, daysInMonthState, realMonthState, currentMonthState, currentYearState, showDayDetailPopup, weatherDataState}) {
+
+
+
+    useEffect(() => {
+        days.forEach((day) => {
+            let dateString = `${currentYearState}-${realMonthState + 1}-${day.key}`
+            let dateEpoch = Date.parse(dateString)
+
+
+            weatherDataState.forEach((dayInstance) => {
+                let dayForecast = dayInstance.forecast.forecastday[0]
+                console.log(dayForecast)
+                if (new Date(dayForecast.date_epoch * 1000).toDateString() === new Date(dateEpoch).toDateString()) {
+                    let displayedDay = document.getElementById(`month-detail-content-day-${day.key}`)
+                    displayedDay.innerText = day.key + ' ' + dayForecast.day.avgtemp_c
+                }
+            })
+        })
+    }, []);
+
     function handleCloseBtnClick() {
         showMonthDetailPopup();
     }
@@ -9,7 +30,7 @@ function MonthDetail({ showMonthDetailPopup, monthNameState, currentDayState, da
     const days = []
     for (let i = 1; i <= daysInMonthState; i++) {
         days.push(
-            <div className={'month-detail-content-day'} onClick={() => showDayDetailPopup(monthNameState, i)}>
+            <div key={i} className={'month-detail-content-day'} id={`month-detail-content-day-${i}`} onClick={() => showDayDetailPopup(monthNameState, i)}>
                 {i}
             </div>
         )

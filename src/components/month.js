@@ -1,10 +1,10 @@
 import '../styles/Month.css'
 
-function Month({monthName, currentDay, daysInMonth, realMonth, currentMonth, showMonthDetailPopup, showDayDetailPopup}) {
+function Month({monthName, currentDay, daysInMonth, realMonth, currentMonth, currentYear, showMonthDetailPopup, showDayDetailPopup}) {
 
 
     function handleMonthNameClick() {
-        showMonthDetailPopup(monthName, currentDay, daysInMonth, realMonth, currentMonth)
+        showMonthDetailPopup(monthName, currentDay, daysInMonth, realMonth, currentMonth, currentYear)
     }
 
 

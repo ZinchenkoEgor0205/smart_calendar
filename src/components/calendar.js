@@ -20,17 +20,17 @@ function Calendar() {
     const [daysInMonthState, setDaysInMonthState] = useState(0);
     const [realMonthState, setRealMonthState] = useState(0);
     const [currentMonthState, setCurrentMonthState] = useState(0);
+    const [currentYearState, setCurrentYearState] = useState(0);
 
     const [selectedDayState, setSelectedDayState] = useState(0);
     const [selectedMonthState, setSelectedMonthState] = useState(0);
-    const [weatherData, setWeatherData] = useState(null);
+    const [weatherDataState, setWeatherDataState] = useState(null);
 
     function getWeatherData () {
         fetch('http://127.0.0.1:8000/weather')
             .then((response) => response.json())
             .then((data) => {
-                console.log('test')
-                setWeatherData(data)
+                setWeatherDataState(data)
             })
             .catch((error) => console.error('Error:', error));
     }
@@ -42,13 +42,14 @@ function Calendar() {
 
 
 
-    function showMonthDetailPopup(monthName, currentDay, daysInMonth, realMonth, currentMonth) {
+    function showMonthDetailPopup(monthName, currentDay, daysInMonth, realMonth, currentMonth, currentYear) {
         setMonthDetailVisibility(!monthDetailVisibility);
         setMonthNameState(monthName)
         setCurrentDayState(currentDay)
         setDaysInMonthState(daysInMonth)
         setRealMonthState(realMonth)
         setCurrentMonthState(currentMonth)
+        setCurrentYearState(currentYear)
     }
 
     function showDayDetailPopup(monthName, currentDay) {
@@ -56,19 +57,19 @@ function Calendar() {
         setSelectedDayState(currentDay)
         setSelectedMonthState(monthName)
 
-        console.log(weatherData)
+        console.log(monthNames.indexOf('Март'))
     }
 
 
     for (let month = currentMonth - 2; month < currentMonth + 10; month++) {
         const realMonth = month >= 0 ? month % 12 : 12 + month;
-        const year = month >= 0 ? new Date().getFullYear() : new Date().getFullYear() - 1;
-        const daysInMonth = new Date(year, realMonth + 1, 0).getDate();
+        const currentYear = month >= 0 ? new Date().getFullYear() : new Date().getFullYear() - 1;
+        const daysInMonth = new Date(currentYear, realMonth + 1, 0).getDate();
 
 
         const monthDetailInstance = (
             <Month key={monthNames[realMonth]} monthName={monthNames[realMonth]} currentDay={currentDay}
-                   daysInMonth={daysInMonth} realMonth={realMonth} currentMonth={currentMonth}
+                   daysInMonth={daysInMonth} realMonth={realMonth} currentMonth={currentMonth} currentYear={currentYear}
                    showMonthDetailPopup={showMonthDetailPopup} showDayDetailPopup={showDayDetailPopup}/>
         );
 
@@ -82,7 +83,7 @@ function Calendar() {
                 <MonthDetail showMonthDetailPopup={showMonthDetailPopup} showDayDetailPopup={showDayDetailPopup}
                              monthNameState={monthNameState}
                              currentDayState={currentDayState} daysInMonthState={daysInMonthState}
-                             realMonthState={realMonthState} currentMonthState={currentMonthState}/>) : null}
+                             realMonthState={realMonthState} currentMonthState={currentMonthState} currentYearState={currentYearState} weatherDataState={weatherDataState}/>) : null}
 
             {calendar}
             {dayDetailVisibility? (
