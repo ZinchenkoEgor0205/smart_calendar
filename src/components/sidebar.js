@@ -19,12 +19,12 @@ function Sidebar () {
             <div className={'sidebar-btn sidebar-btn-more btn'} onClick={moreBtnClicked}>more</div>
             <div className={'sidebar-filters'}>
                 <div className="sidebar-filter">
-                    <div className="sidebar-filter-icon">0</div>
-                    <div className="sidebar-filter-text">Description</div>
+                    <div className="sidebar-filter-icon sidebar-filter-icon-wearher">П</div>
+                    <div className="sidebar-filter-text sidebar-filter-text-weather">Погода</div>
                 </div>
                 <div className="sidebar-filter">
-                    <div className="sidebar-filter-icon">0</div>
-                    <div className="sidebar-filter-text">Description</div>
+                    <div className="sidebar-filter-icon sidebar-filter-icon-work">Р</div>
+                    <div className="sidebar-filter-text sidebar-filter-text-work">Работа</div>
                 </div>
                 <div className="sidebar-filter">
                     <div className="sidebar-filter-icon">0</div>

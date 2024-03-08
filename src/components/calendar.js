@@ -2,7 +2,7 @@ import '../styles/App.css';
 import '../components/month'
 import Month from "../components/month";
 import MonthDetail from "./month_detail";
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import Day from "./day";
 
 
@@ -23,6 +23,24 @@ function Calendar() {
 
     const [selectedDayState, setSelectedDayState] = useState(0);
     const [selectedMonthState, setSelectedMonthState] = useState(0);
+    const [weatherData, setWeatherData] = useState(null);
+
+    function getWeatherData () {
+        fetch('http://127.0.0.1:8000/weather')
+            .then((response) => response.json())
+            .then((data) => {
+                console.log('test')
+                setWeatherData(data)
+            })
+            .catch((error) => console.error('Error:', error));
+    }
+
+    // вызов getWeatherData при монтировании компонента
+    useEffect(() => {
+        getWeatherData();
+    }, []);
+
+
 
     function showMonthDetailPopup(monthName, currentDay, daysInMonth, realMonth, currentMonth) {
         setMonthDetailVisibility(!monthDetailVisibility);
@@ -37,6 +55,8 @@ function Calendar() {
         setDayDetailVisibility(!dayDetailVisibility)
         setSelectedDayState(currentDay)
         setSelectedMonthState(monthName)
+
+        console.log(weatherData)
     }
 
 
