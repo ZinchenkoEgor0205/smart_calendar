@@ -2,9 +2,9 @@
     position: sticky;
     top: 0;
     height: 92.5vh;
-    width: 5%;
+    width: 3%;
     background: #fa7c7c;
-    transition: width 0.5s ease;
+    transition: width 0.3s ease;
 }
 
 
@@ -14,4 +14,24 @@
 
 .sidebar-btn {
     margin-bottom: 3vh;
+}
+
+.sidebar-filter {
+    display: flex;
+}
+
+.sidebar-filter-icon {
+    margin-right: 0.5vw;
+}
+
+.sidebar-filter-text {
+    transform: translateX(-100%);
+    opacity: 0;
+    transition-property: opacity, transform;
+    transition-duration: 0.5s;
+}
+
+.sidebar-filter-text-visible {
+    transform: translateX(0);
+    opacity: 100%;
 }
