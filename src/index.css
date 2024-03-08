@@ -61,3 +61,7 @@ code {
 .btn {
   cursor: pointer;
 }
+
+html {
+  overflow: hidden;
+}

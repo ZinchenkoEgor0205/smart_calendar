@@ -2,14 +2,16 @@
     position: sticky;
     top: 0;
     height: 92.5vh;
-    width: 3%;
+    width: 20vw;
     background: #fa7c7c;
-    transition: width 0.3s ease;
+    transform: translateX(70%);
+    transition: transform .5s ease;
 }
 
 
 .sidebar-extended {
-    width: 20%;
+    transform: translateX(0);
+
 }
 
 .sidebar-btn {
@@ -25,13 +27,13 @@
 }
 
 .sidebar-filter-text {
-    transform: translateX(-100%);
+    /*transform: translateX(-100%);*/
     opacity: 0;
-    transition-property: opacity, transform;
+    transition-property: opacity;
     transition-duration: 0.5s;
 }
 
 .sidebar-filter-text-visible {
-    transform: translateX(0);
+    /*transform: translateX(0);*/
     opacity: 100%;
 }
