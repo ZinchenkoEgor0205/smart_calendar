@@ -14,6 +14,19 @@ function Navigation() {
     const [notificationsPopupVisibility, setNotificationsPopupVisibility] = useState(false);
 
     function loginBtnClick() {
+        function login () {
+            fetch('http://127.0.0.1:8000/auth/jwt/login')
+                .then((response) => response.json())
+                .then((data) => {
+                })
+                .catch((error) => console.error('Error:', error));
+            console.log(1)
+        }
+        login()
+        setLoginPopupVisibility(!loginPopupVisibility)
+    }
+
+    function loginPopupSwitch() {
         setLoginPopupVisibility(!loginPopupVisibility)
     }
 
@@ -32,7 +45,7 @@ function Navigation() {
     return (
         <nav>
             <div className={'nav-container'}>
-                <div className={'nav-container-btn-login'} onClick={loginBtnClick}>
+                <div className={'nav-container-btn-login'} onClick={loginPopupSwitch}>
                     Войти
                 </div>
                 <div className={'nav-container-btn-registration'} onClick={registrationBtnClick}>
@@ -45,7 +58,7 @@ function Navigation() {
                     Уведомления
                 </div>
             </div>
-            {loginPopupVisibility ? <LoginPopup loginBtnClick={loginBtnClick}/> : null}
+            {loginPopupVisibility ? <LoginPopup setLoginPopupVisibility={setLoginPopupVisibility} loginPopupVisibility={loginPopupVisibility} loginPopupSwitch={loginPopupSwitch}/> : null}
             {registrationPopupVisibility ? <RegistrationPopup registrationBtnClick={registrationBtnClick}/> : null}
             {accountPopupVisibility ? <AccountPopup accountBtnClick={accountBtnClick}/> : null}
             {notificationsPopupVisibility ? <NotificationsPopup notificationsBtnClick={notificationsBtnClick}/> : null}
