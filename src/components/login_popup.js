@@ -18,7 +18,9 @@ function LoginPopup({setLoginPopupVisibility, loginPopupVisibility, loginPopupSw
                         accept: 'application/json',
                     },
                     withCredentials: true
-                });
+                }).then((data) => {
+                    console.log(data)
+                })
                 console.log(response)
                 // Handle the response data as needed (e.g., update state, dispatch actions, etc.)
             } catch (error) {

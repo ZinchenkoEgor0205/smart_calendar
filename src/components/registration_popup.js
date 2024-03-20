@@ -6,11 +6,15 @@ function RegistrationPopup({registrationBtnClick}) {
 
     function registrationPopupBtnClick() {
         function register() {
+            const form = document.querySelector('.registration-popup-form')
+            const email = form.elements['email'].value
+            const username = form.elements['username'].value
+            const password = form.elements['password'].value
             try {
                 const response = axios.post('http://127.0.0.1:8000/auth/register', {
-                    email: 'email@email.com',
-                    password: 'password',
-                    username: 'username1',
+                    email: email,
+                    password: password,
+                    username: username,
                 });
 
                 console.log(response.data); // Log the response data
@@ -29,9 +33,9 @@ function RegistrationPopup({registrationBtnClick}) {
             <h3 className={'registration-popup-header'}>Регистрация</h3>
             <button className={'registration-popup-close'} type={'button'} onClick={registrationPopupBtnClick}>Закрыть</button>
             <form className={'registration-popup-form'}>
-                <input className={'registration-popup-form-input'} placeholder={'Email'}/>
-                <input className={'registration-popup-form-input'} placeholder={'Имя пользователя'}/>
-                <input className={'registration-popup-form-input'} placeholder={'Пароль'} type={'password'}/>
+                <input className={'registration-popup-form-input'} name={'email'} placeholder={'Email'}/>
+                <input className={'registration-popup-form-input'} name={'username'} placeholder={'Имя пользователя'}/>
+                <input className={'registration-popup-form-input'} name={'password'} placeholder={'Пароль'} type={'password'}/>
                 <button className={'registration-popup-form-btn'} name={'registration'} type={'button'}
                         onClick={registrationPopupBtnClick}>Зарегистрироваться
                 </button>

@@ -5,9 +5,14 @@ import Navigation from "./components/navigation";
 import Sidebar from "./components/sidebar";
 
 
+
+
+
 function checkUserAuth() {
 
-    fetch('http://127.0.0.1:8000/auth/get_current_user')
+    fetch('http://127.0.0.1:8000/users/me', {
+            credentials: 'include'
+    })
         .then((response) => response.json())
         .then((data) => {
             console.log(data)
@@ -17,9 +22,12 @@ function checkUserAuth() {
 
 
 function App() {
+
+
     return (
         <div className={'app'} >
             <Navigation/>
+            <button type={"button"} onClick={checkUserAuth}>check</button>
             <div className={'content'}>
                 <Calendar/>
                 <Sidebar/>
