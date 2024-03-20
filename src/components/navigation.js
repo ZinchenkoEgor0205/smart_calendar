@@ -6,27 +6,16 @@ import RegistrationPopup from "./registration_popup";
 import AccountPopup from "./account_popup";
 import NotificationsPopup from "./notifications_popup";
 
-function Navigation() {
+function Navigation({userData, setUserData, checkUserAuth}) {
 
     const [loginPopupVisibility, setLoginPopupVisibility] = useState(false);
     const [registrationPopupVisibility, setRegistrationPopupVisibility] = useState(false);
     const [accountPopupVisibility, setAccountPopupVisibility] = useState(false);
     const [notificationsPopupVisibility, setNotificationsPopupVisibility] = useState(false);
 
-    function loginBtnClick() {
-        function login () {
-            fetch('http://127.0.0.1:8000/auth/jwt/login')
-                .then((response) => response.json())
-                .then((data) => {
-                })
-                .catch((error) => console.error('Error:', error));
-            console.log(1)
-        }
-        login()
-        setLoginPopupVisibility(!loginPopupVisibility)
-    }
 
     function loginPopupSwitch() {
+        console.log(userData)
         setLoginPopupVisibility(!loginPopupVisibility)
     }
 
@@ -45,20 +34,24 @@ function Navigation() {
     return (
         <nav>
             <div className={'nav-container'}>
+                {!userData &&
                 <div className={'nav-container-btn-login'} onClick={loginPopupSwitch}>
                     Войти
-                </div>
+                </div>}
+                {!userData &&
                 <div className={'nav-container-btn-registration'} onClick={registrationBtnClick}>
                     Регистрация
-                </div>
+                </div>}
+                {userData &&
                 <div className={'nav-container-btn-account'} onClick={accountBtnClick}>
                     Личный кабинет
-                </div>
+                </div>}
+                {userData &&
                 <div className={'nav-container-btn-notifications'} onClick={notificationsBtnClick}>
                     Уведомления
-                </div>
+                </div>}
             </div>
-            {loginPopupVisibility ? <LoginPopup setLoginPopupVisibility={setLoginPopupVisibility} loginPopupVisibility={loginPopupVisibility} loginPopupSwitch={loginPopupSwitch}/> : null}
+            {loginPopupVisibility ? <LoginPopup setLoginPopupVisibility={setLoginPopupVisibility} loginPopupVisibility={loginPopupVisibility} loginPopupSwitch={loginPopupSwitch} checkUserAuth={checkUserAuth}/> : null}
             {registrationPopupVisibility ? <RegistrationPopup registrationBtnClick={registrationBtnClick}/> : null}
             {accountPopupVisibility ? <AccountPopup accountBtnClick={accountBtnClick}/> : null}
             {notificationsPopupVisibility ? <NotificationsPopup notificationsBtnClick={notificationsBtnClick}/> : null}

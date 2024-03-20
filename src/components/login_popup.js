@@ -1,6 +1,6 @@
 import '../styles/Login_popup.css'
 import axios from "axios";
-function LoginPopup({setLoginPopupVisibility, loginPopupVisibility, loginPopupSwitch}) {
+function LoginPopup({setLoginPopupVisibility, loginPopupVisibility, loginPopupSwitch, checkUserAuth}) {
 
     function loginBtnClick() {
         function login() {
@@ -14,18 +14,15 @@ function LoginPopup({setLoginPopupVisibility, loginPopupVisibility, loginPopupSw
                     password: password,
                 }, {
                     headers: {
-                        'Content-Type': 'application/x-www-form-urlencoded', // Default content type
+                        'Content-Type': 'application/x-www-form-urlencoded',
                         accept: 'application/json',
                     },
                     withCredentials: true
                 }).then((data) => {
-                    console.log(data)
+                    checkUserAuth()
                 })
-                console.log(response)
-                // Handle the response data as needed (e.g., update state, dispatch actions, etc.)
             } catch (error) {
                 console.error('Error:', error);
-                // Handle the error (e.g., show an error message to the user)
             }
         }
         login()
