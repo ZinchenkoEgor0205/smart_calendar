@@ -9,7 +9,7 @@ function LoginPopup({setLoginPopupVisibility, loginPopupVisibility, loginPopupSw
                 const formData = new FormData(form)
                 const username = formData.get('username');
                 const password = formData.get('password');
-                const response = axios.post('http://127.0.0.1:8000/auth/jwt/login', {
+                axios.post('http://127.0.0.1:8000/auth/jwt/login', {
                     username: username,
                     password: password,
                 }, {
